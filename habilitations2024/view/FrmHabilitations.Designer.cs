@@ -52,6 +52,8 @@
             this.btnDemandeSupprDev = new System.Windows.Forms.Button();
             this.btnDemandeModifDev = new System.Windows.Forms.Button();
             this.grbLesDeveloppeurs = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboFiltreProfil = new System.Windows.Forms.ComboBox();
             this.dgvDeveloppeurs = new System.Windows.Forms.DataGridView();
             this.grbPwd.SuspendLayout();
             this.grbDeveloppeur.SuspendLayout();
@@ -288,6 +290,8 @@
             // 
             // grbLesDeveloppeurs
             // 
+            this.grbLesDeveloppeurs.Controls.Add(this.label8);
+            this.grbLesDeveloppeurs.Controls.Add(this.comboFiltreProfil);
             this.grbLesDeveloppeurs.Controls.Add(this.btnDemandeChangePwd);
             this.grbLesDeveloppeurs.Controls.Add(this.btnDemandeSupprDev);
             this.grbLesDeveloppeurs.Controls.Add(this.btnDemandeModifDev);
@@ -298,6 +302,24 @@
             this.grbLesDeveloppeurs.TabIndex = 4;
             this.grbLesDeveloppeurs.TabStop = false;
             this.grbLesDeveloppeurs.Text = "les développeurs";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(373, 235);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "sélection de filtre";
+            // 
+            // comboFiltreProfil
+            // 
+            this.comboFiltreProfil.FormattingEnabled = true;
+            this.comboFiltreProfil.Location = new System.Drawing.Point(465, 232);
+            this.comboFiltreProfil.Name = "comboFiltreProfil";
+            this.comboFiltreProfil.Size = new System.Drawing.Size(121, 21);
+            this.comboFiltreProfil.TabIndex = 4;
+            this.comboFiltreProfil.SelectedIndexChanged += new System.EventHandler(this.comboFiltreProfil_SelectedIndexChanged);
             // 
             // dgvDeveloppeurs
             // 
@@ -325,11 +347,13 @@
             this.Controls.Add(this.grbLesDeveloppeurs);
             this.Name = "FrmHabilitations";
             this.Text = "Habilitations";
+            this.Load += new System.EventHandler(this.FrmHabilitations_Load);
             this.grbPwd.ResumeLayout(false);
             this.grbPwd.PerformLayout();
             this.grbDeveloppeur.ResumeLayout(false);
             this.grbDeveloppeur.PerformLayout();
             this.grbLesDeveloppeurs.ResumeLayout(false);
+            this.grbLesDeveloppeurs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeveloppeurs)).EndInit();
             this.ResumeLayout(false);
 
@@ -362,6 +386,8 @@
         private System.Windows.Forms.Button btnDemandeModifDev;
         private System.Windows.Forms.GroupBox grbLesDeveloppeurs;
         private System.Windows.Forms.DataGridView dgvDeveloppeurs;
+        private System.Windows.Forms.ComboBox comboFiltreProfil;
+        private System.Windows.Forms.Label label8;
     }
 }
 

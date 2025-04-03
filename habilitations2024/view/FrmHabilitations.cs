@@ -254,5 +254,37 @@ namespace habilitations2024.view
             txtPwd2.Text = "";
         }
 
+        private void FrmHabilitations_Load(object sender, EventArgs e)
+        {
+            comboFiltreProfil.Items.Add(""); // Tous les profils
+            comboFiltreProfil.Items.Add("stagiaire");
+            comboFiltreProfil.Items.Add("dev-back");
+            comboFiltreProfil.Items.Add("dev-front");
+            comboFiltreProfil.Items.Add("designer");
+            comboFiltreProfil.Items.Add("admin");
+            comboFiltreProfil.SelectedIndex = 0;
+            ChargerDeveloppeurs("");
+        }
+
+        private void comboFiltreProfil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string profilSelectionne = comboFiltreProfil.SelectedItem?.ToString() ?? "";
+            ChargerDeveloppeurs(profilSelectionne);
+        }
+
+
+        public void ChargerDeveloppeurs(string profilFiltre = "")
+        {
+            if (controller == null)
+            {
+                controller = new FrmHabilitationsController();
+            }
+            List<Developpeur> developpeurs = controller.ObtenirDeveloppeurs(profilFiltre);
+            dgvDeveloppeurs.DataSource = null;  
+            dgvDeveloppeurs.DataSource = developpeurs;
+        }
+
+
+
     }
 }
